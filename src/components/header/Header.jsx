@@ -8,6 +8,7 @@ export function Header() {
           <Navbar.Brand href="#">NutriTrack</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="#">Home</Nav.Link>
+            <Nav.Link href="#">Add</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

@@ -25,13 +25,13 @@ export function FoodTable({
       <Table striped bordered hover responsive variant="dark">
         <thead>
           <tr>
-            <th>Description</th>
+            <th>Name</th>
             <th>KCal</th>
             <th>Protein</th>
             <th>Carbs</th>
             <th>Fat</th>
             <th>Fiber</th>
-            {isSelected && <th>Delete</th>}
+            {isSelected && foods.length !== 0 && <th>Delete</th>}
           </tr>
         </thead>
         <tbody>
@@ -48,7 +48,7 @@ export function FoodTable({
                   <td>{food.carbs}</td>
                   <td>{food.fat}</td>
                   <td>{food.fiber}</td>
-                  {isSelected && (
+                  {isSelected && foods.length !== 0 && (
                     <td>
                       {
                         <Button
@@ -72,7 +72,7 @@ export function FoodTable({
               <td>{calculateTotalValue(foods, (food) => food.carbs)}</td>
               <td>{calculateTotalValue(foods, (food) => food.fat)}</td>
               <td>{calculateTotalValue(foods, (food) => food.fiber)}</td>
-              <td></td>
+              {isSelected && foods.length !== 0 && <td></td>}
             </tr>
           )}
         </tbody>

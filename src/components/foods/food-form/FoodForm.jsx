@@ -4,9 +4,9 @@ import { Button, FloatingLabel, Form } from 'react-bootstrap';
 export function FoodForm() {
   return (
     <div>
-      <h2>Add new food</h2>
+      <h2 className="mt-4">Add new food</h2>
 
-      <Form className="food-form border rounded mt-3 mb-3 mx-auto p-3">
+      <Form className="food-form border rounded mt-3 mb-4 mx-auto p-3">
         <Form.Group className="mb-3 mt-1 mx-auto" controlId="formBasicName">
           <FloatingLabel
             controlId="floatingInput1"

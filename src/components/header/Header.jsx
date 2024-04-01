@@ -1,14 +1,23 @@
 import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export function Header() {
   return (
     <div>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#">NutriTrack</Navbar.Brand>
+          <Navbar.Brand>
+            <Link to="/" className="nav-link">
+              NutriTrack
+            </Link>
+          </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#">Home</Nav.Link>
-            <Nav.Link href="#">Add</Nav.Link>
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+            <Link to="/add" className="nav-link">
+              Add
+            </Link>
           </Nav>
         </Container>
       </Navbar>

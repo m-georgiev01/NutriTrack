@@ -2,7 +2,6 @@ import './Main.css';
 import { FoodTable } from '../foods/food-table/FoodTable';
 import { useState } from 'react';
 import { SearchBar } from '../search-bar/SearchBar';
-import { FoodForm } from '../foods/food-form/FoodForm';
 
 export function Main() {
   const [foods, setFoods] = useState([
@@ -74,7 +73,6 @@ export function Main() {
 
   return (
     <div className="main-container">
-      <FoodForm />
       <FoodTable
         isSelected
         foods={selectedFoods}

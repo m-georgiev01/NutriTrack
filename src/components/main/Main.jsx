@@ -1,57 +1,10 @@
-import './Main.css';
 import { FoodTable } from '../foods/food-table/FoodTable';
 import { useState } from 'react';
 import { SearchBar } from '../search-bar/SearchBar';
+import { getFoodsBySearchParam } from '../../services/food-service';
 
 export function Main() {
-  const [foods, setFoods] = useState([
-    {
-      id: 1,
-      name: 'Apple',
-      calories: 95,
-      protein: 0.5,
-      carbs: 25,
-      fat: 0.3,
-      fiber: 4.4,
-    },
-    {
-      id: 2,
-      name: 'Banana',
-      calories: 105,
-      protein: 1.3,
-      carbs: 27,
-      fat: 0.4,
-      fiber: 3.1,
-    },
-    {
-      id: 3,
-      name: 'Chicken Breast (Boneless, Skinless)',
-      calories: 165,
-      protein: 31,
-      carbs: 0,
-      fat: 3.6,
-      fiber: 0,
-    },
-    {
-      id: 4,
-      name: 'Salmon (Wild-caught)',
-      calories: 233,
-      protein: 25,
-      carbs: 0,
-      fat: 14,
-      fiber: 0,
-    },
-    {
-      id: 5,
-      name: 'Brown Rice (Cooked)',
-      calories: 218,
-      protein: 4.5,
-      carbs: 45,
-      fat: 1.6,
-      fiber: 3.5,
-    },
-  ]);
-
+  const [foods, setFoods] = useState([]);
   const [selectedFoods, setSelectedFoods] = useState([]);
 
   function addFoodToSelected(id) {
@@ -71,14 +24,30 @@ export function Main() {
     );
   }
 
+  function searchDb(e) {
+    const inputValue = e.target.value;
+
+    if (inputValue.length >= 2) {
+      getFoodsBySearchParam(e.target.value)
+        .then((res) => {
+          setFoods(res);
+        })
+        .catch((err) => {
+          console.error('Error:', err);
+        });
+    } else {
+      setFoods([]);
+    }
+  }
+
   return (
-    <div className="main-container">
+    <div className="p-4">
       <FoodTable
         isSelected
         foods={selectedFoods}
         handleDelete={deleteSelectedFood}
       />
-      <SearchBar />
+      <SearchBar handleSearch={searchDb} />
       <FoodTable foods={foods} handleSelection={addFoodToSelected} />
     </div>
   );

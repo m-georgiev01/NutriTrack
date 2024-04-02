@@ -1,6 +1,6 @@
 import { Form, InputGroup } from 'react-bootstrap';
 
-export function SearchBar() {
+export function SearchBar({ handleSearch }) {
   return (
     <div>
       <InputGroup className="mb-3" data-bs-theme="dark">
@@ -9,6 +9,7 @@ export function SearchBar() {
           placeholder="Search foods..."
           aria-label="Search foods..."
           aria-describedby="basic-addon1"
+          onChange={handleSearch}
         />
       </InputGroup>
     </div>

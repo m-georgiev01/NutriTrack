@@ -3,6 +3,7 @@ import './App.css';
 import { Main } from './components/main/Main';
 import { Layout } from './components/layout/Layout';
 import { FoodForm } from './components/foods/food-form/FoodForm';
+import { NotFound } from './components/not-found/NotFound';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route exact path="/" element={<Layout />}>
           <Route path="/" element={<Main />} />
           <Route path="/add" element={<FoodForm />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </div>

@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# NutriTrack
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Your Personalized Nutrition Navigator!
 
-## Available Scripts
+## About The Project <a name = "about-the-project"></a>
 
-In the project directory, you can run:
+NutriTrack presents an intuitive interface for retrieving nutritional information from an extensive food database. Its dynamic search feature provides real-time results as users type. Once users locate their desired food items, a simple click seamlessly adds them to the top table, where nutritional totals are dynamically aggregated. Users also have the option to contribute new food items to expand the existing database.
+
+## Getting Started
+
+### Run the project
+
+### `npm install`
+
+Installs all the dependencies required for the project.\
+It reads the `package.json` file in the project directory and installs all the listed dependencies, ensuring that the project has everything it needs to run correctly
+
+### `node server.js`
+
+Start the Express.js server defined in the `server.js` file.\
+It handles HTTP requests and responses for your application.
 
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.\
+The page will reload when you make changes.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Application screenshots
+![Screenshot_1](https://github.com/m-georgiev01/NutriTrack/assets/83757143/ee3f0c4f-f5c1-432e-b9d3-d547b9a3a3b9)
+![Screenshot_5](https://github.com/m-georgiev01/NutriTrack/assets/83757143/129f9f3b-112e-4698-bde2-c2461f68e972)
+![Screenshot_10](https://github.com/m-georgiev01/NutriTrack/assets/83757143/19b3f04e-b6b5-4ef1-98ab-82d20ee52270)
+![Screenshot_11](https://github.com/m-georgiev01/NutriTrack/assets/83757143/0aae5542-d3bb-46a5-becc-c50c79e7b3a9)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Built With
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [ReactJS](https://react.dev/)
+- [React Bootstrap](https://react-bootstrap.netlify.app/)
+- [React Router](https://reactrouter.com/en/main)
+- [Express.js](https://expressjs.com/)
+- [Axios](https://axios-http.com/docs/intro)
+- [Visual Studio Code](https://code.visualstudio.com/)
+  <br/><br/>

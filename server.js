@@ -31,7 +31,7 @@ app.get('/foods/:searchInput', (req, res) => {
 
   fs.readFile(DATA_FILE, (_, data) => {
     res.setHeader('Cache-Control', 'no-cache');
-    const filteredData = JSON.parse(data).filter((f) =>
+    const filteredData = JSON.parse(data).foods.filter((f) =>
       f.name.toLowerCase().includes(searchedInput.toLowerCase())
     );
     res.json(filteredData);
@@ -40,10 +40,10 @@ app.get('/foods/:searchInput', (req, res) => {
 
 app.post('/foods', (req, res) => {
   fs.readFile(DATA_FILE, (_, data) => {
-    const foods = JSON.parse(data);
+    const jsonData = JSON.parse(data);
 
     const newFood = {
-      id: foods[foods.length - 1].id + 1,
+      id: jsonData.foods[jsonData.foods.length - 1].id + 1,
       name: req.body.name,
       calories: req.body.calories,
       protein: req.body.protein,
@@ -52,10 +52,55 @@ app.post('/foods', (req, res) => {
       fiber: req.body.fiber,
     };
 
-    foods.push(newFood);
+    jsonData.foods.push(newFood);
 
-    fs.writeFile(DATA_FILE, JSON.stringify(foods, null, 2), () => {
+    fs.writeFile(DATA_FILE, JSON.stringify(jsonData, null, 2), () => {
       res.status(201).json(newFood);
+    });
+  });
+});
+
+app.get('/selected-foods', (_, res) => {
+  fs.readFile(DATA_FILE, (_, data) => {
+    res.setHeader('Cache-Control', 'no-cache');
+    res.json(JSON.parse(data).selectedFoods);
+  });
+});
+
+app.post('/selected-foods', (req, res) => {
+  fs.readFile(DATA_FILE, (_, data) => {
+    const jsonData = JSON.parse(data);
+
+    const newSelectedFood = {
+      id: req.body.id,
+      name: req.body.name,
+      calories: req.body.calories,
+      protein: req.body.protein,
+      carbs: req.body.carbs,
+      fat: req.body.fat,
+      fiber: req.body.fiber,
+    };
+
+    jsonData.selectedFoods.push(newSelectedFood);
+
+    fs.writeFile(DATA_FILE, JSON.stringify(jsonData, null, 2), () => {
+      res.status(201).json(newSelectedFood);
+    });
+  });
+});
+
+app.delete('/selected-foods/:id', (req, res) => {
+  const foodIdToDelete = Number(req.params.id);
+  fs.readFile(DATA_FILE, (_, data) => {
+    const jsonData = JSON.parse(data);
+    const indexToDelete = jsonData.selectedFoods.findIndex(
+      (f) => f.id === foodIdToDelete
+    );
+
+    jsonData.selectedFoods.splice(indexToDelete, 1);
+
+    fs.writeFile(DATA_FILE, JSON.stringify(jsonData, null, 2), () => {
+      res.status(200).send('Selected food item deleted successfully');
     });
   });
 });
